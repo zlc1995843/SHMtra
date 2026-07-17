@@ -475,6 +475,12 @@ def main() -> int:
     parser.add_argument("--batch-characters", type=int, default=18000)
     parser.add_argument("--batch-segments", type=int, default=80)
     parser.add_argument(
+        "--max-batches",
+        type=int,
+        default=0,
+        help="Translate at most this many API batches before exporting a checkpoint.",
+    )
+    parser.add_argument(
         "--glossary",
         type=Path,
         default=Path("Lang/CHS/translation-glossary.json"),
@@ -551,10 +557,8 @@ def main() -> int:
             pending.append(segment)
         else:
             translations[segment.segment_id] = cached
-    validated_translation_count = len(translations)
+    cached_translation_count = len(translations)
     if args.export_partial:
-        for segment in pending:
-            translations[segment.segment_id] = segment.source
         batches: list[list[Segment]] = []
     else:
         batches = batches_by_characters(
@@ -562,8 +566,10 @@ def main() -> int:
             max(2000, args.batch_characters),
             max(1, min(80, args.batch_segments)),
         )
+        if args.max_batches > 0:
+            batches = batches[: args.max_batches]
     print(
-        f"Cached segments: {validated_translation_count}; pending: {len(pending)}; "
+        f"Cached segments: {cached_translation_count}; pending: {len(pending)}; "
         f"API batches: {len(batches)}; model: {args.model}"
     )
 
@@ -591,6 +597,15 @@ def main() -> int:
                     cache.update(segment, translation)
                 cache.save()
                 print(f"Translated batch {completed}/{len(futures)}")
+
+    remaining = [
+        segment
+        for segment in all_segments
+        if segment.segment_id not in translations
+    ]
+    validated_translation_count = len(translations)
+    for segment in remaining:
+        translations[segment.segment_id] = segment.source
 
     manifest_files: list[dict[str, Any]] = []
     untranslated: list[str] = []
@@ -640,9 +655,9 @@ def main() -> int:
         "bundle_config": config_path.name,
         "story_count": len(catalog),
         "segment_count": len(all_segments),
-        "partial": bool(args.export_partial and pending),
+        "partial": bool(remaining),
         "translated_segment_count": validated_translation_count,
-        "pending_segment_count": len(pending) if args.export_partial else 0,
+        "pending_segment_count": len(remaining),
         "untranslated_kana_segments": sorted(set(untranslated)),
         "files": manifest_files,
     }
