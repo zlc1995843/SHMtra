@@ -294,6 +294,11 @@ def required_glossary_targets(
             if term == "ロイズ" and source[end : end + 2] == "ちゃ":
                 start = index + 1
                 continue
+            # 「ニア」 is also the middle of the unrelated adjective
+            # 「マニアック」, so it must not trigger the character-name term.
+            if term == "ニア" and source[max(0, index - 1) : end + 2] == "マニアック":
+                start = index + 1
+                continue
             if not any(occupied[index:end]):
                 for position in range(index, end):
                     occupied[position] = True
