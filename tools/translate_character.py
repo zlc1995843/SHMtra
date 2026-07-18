@@ -227,6 +227,9 @@ def localize_speaker_labels(script: str, glossary: list[dict[str, str]]) -> str:
         reverse=True,
     )
     exact = dict(replacements)
+    # Engine-only cast variants belong in display labels, not in the prose
+    # glossary: enforcing them in dialogue can reject natural translations.
+    exact.update({"ニアP1": "妮娅", "全員": "众人"})
     pattern = re.compile(
         r"^(?P<prefix>[ \t]*@ShowCastMessage,)(?P<cast>[^,\r\n]*)"
         r"(?:,(?P<label>[^\r\n]*))?(?P<ending>\r?)$",
