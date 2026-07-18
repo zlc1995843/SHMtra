@@ -376,6 +376,11 @@ def required_glossary_targets(
     required: list[tuple[str, str]] = []
     for item in glossary:
         term = item["source"]
+        # These generic speaker labels have several equally natural prose
+        # translations. Keep them available for display-name localization but
+        # do not force one wording inside dialogue and narration.
+        if term in {"みんな", "住人"}:
+            continue
         start = 0
         matched = False
         while True:
