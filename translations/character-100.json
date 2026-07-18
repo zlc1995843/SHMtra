@@ -15,14 +15,14 @@
       "story": "Card/story1000011",
       "path": "assets/AdvStory/import/d8/d8e1e2ec-8708-421d-aa9d-0c9aff786a1b.d082c.json",
       "source_sha256": "5528521a6a874c292467089902a23f897a6c3fdc2c3ded604521ae7bb4ff1b69",
-      "translated_sha256": "4819ceaa51c90ce1ceb1aa0ff39a5b89040a1113e95085569988b5d053df4351",
+      "translated_sha256": "b9535b470f3a1078a4566f1fb09c8b8cb1a281756a3d99bcc5be4b4413e08cd7",
       "segments": 121
     },
     {
       "story": "Card/story1000012",
       "path": "assets/AdvStory/import/fc/fc927343-1765-41f5-8814-2385938e2e07.bcfc8.json",
       "source_sha256": "3b3c669881232b916269b7b6af384cf97e79fe1db6412bb30c6fcbfb3d108022",
-      "translated_sha256": "17f9c5aa38072850c569cc46711e231ec1fe327c2232406cf053f875d16775a5",
+      "translated_sha256": "934bb1a5fe10a1bf58559958f1528780a92f6e77fb2f83366fde2ab15def51c0",
       "segments": 100
     }
   ]

@@ -204,6 +204,50 @@ def is_translatable_line(line: str) -> bool:
     return bool(re.search(r"[\u3040-\u30ff\u3400-\u9fff]", stripped))
 
 
+def localize_speaker_labels(script: str, glossary: list[dict[str, str]]) -> str:
+    """Translate only the visible label of ShowCastMessage directives.
+
+    The second field is the engine's internal cast key and must stay Japanese.
+    The optional third field is the label rendered in the message box.  When a
+    known cast uses the short two-field form, append a translated display label
+    without changing the internal key.
+    """
+    replacements = sorted(
+        (
+            (str(item.get("source", "")), str(item.get("target", "")))
+            for item in glossary
+            if str(item.get("source", "")) and str(item.get("target", ""))
+        ),
+        key=lambda pair: len(pair[0]),
+        reverse=True,
+    )
+    exact = dict(replacements)
+    pattern = re.compile(
+        r"^(?P<prefix>[ \t]*@ShowCastMessage,)(?P<cast>[^,\r\n]*)"
+        r"(?:,(?P<label>[^\r\n]*))?(?P<ending>\r?)$",
+        flags=re.MULTILINE,
+    )
+
+    def replace_label(value: str) -> str:
+        result = value
+        for source, target in replacements:
+            result = result.replace(source, target)
+        return result
+
+    def rewrite(match: re.Match[str]) -> str:
+        cast = match.group("cast")
+        label = match.group("label")
+        if label is not None:
+            localized = replace_label(label)
+            return match.group("prefix") + cast + "," + localized + match.group("ending")
+        localized = exact.get(cast, cast)
+        if localized == cast:
+            return match.group(0)
+        return match.group("prefix") + cast + "," + localized + match.group("ending")
+
+    return pattern.sub(rewrite, script)
+
+
 def extract_segments(story_name: str, script: str) -> tuple[list[str], list[Segment]]:
     lines = script.replace("\r\n", "\n").replace("\r", "\n").split("\n")
     segments: list[Segment] = []
@@ -634,6 +678,7 @@ def main() -> int:
         translated_script = "\r\n".join(lines)
         if not unchanged_directives(story_scripts[logical_name], translated_script):
             raise ValueError(f"A directive changed in {logical_name}")
+        translated_script = localize_speaker_labels(translated_script, glossary)
         for _, segments in [extract_segments(logical_name, translated_script)]:
             for segment in segments:
                 if JAPANESE_RE.search(segment.source):
