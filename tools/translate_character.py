@@ -294,11 +294,17 @@ def required_glossary_targets(
             if term == "ロイズ" and source[end : end + 2] == "ちゃ":
                 start = index + 1
                 continue
-            # 「ニア」 is also the middle of the unrelated adjective
-            # 「マニアック」, so it must not trigger the character-name term.
-            if term == "ニア" and source[max(0, index - 1) : end + 2] == "マニアック":
-                start = index + 1
-                continue
+            # 「ニア」 also occurs inside unrelated katakana words such as
+            # 「マニアック」 and 「アンモニア」. Only treat it as the character
+            # name when it is not joined to another katakana character.
+            if term == "ニア":
+                previous = source[index - 1] if index > 0 else ""
+                following = source[end] if end < len(source) else ""
+                if re.fullmatch(r"[ァ-ヺー]", previous) or re.fullmatch(
+                    r"[ァ-ヺー]", following
+                ):
+                    start = index + 1
+                    continue
             if not any(occupied[index:end]):
                 for position in range(index, end):
                     occupied[position] = True
