@@ -10,33 +10,10 @@
   "bundle_config": "config.53878.json",
   "story_count": 529,
   "segment_count": 20609,
-  "partial": true,
-  "translated_segment_count": 20587,
-  "pending_segment_count": 22,
-  "untranslated_kana_segments": [
-    "Main/story200420:0014",
-    "Main/story200420:0015",
-    "Main/story200420:0016",
-    "Main/story200420:0017",
-    "Main/story200420:0018",
-    "Main/story200420:0019",
-    "Main/story200420:0020",
-    "Main/story200420:0021",
-    "Main/story200420:0022",
-    "Main/story200420:0023",
-    "Main/story200420:0024",
-    "Main/story200420:0025",
-    "Main/story200420:0026",
-    "Main/story200420:0027",
-    "Main/story200421:0001",
-    "Main/story200421:0002",
-    "Main/story200421:0003",
-    "Main/story200421:0004",
-    "Main/story200421:0005",
-    "Main/story200421:0006",
-    "Main/story200421:0007",
-    "Main/story200421:0008"
-  ],
+  "partial": false,
+  "translated_segment_count": 20609,
+  "pending_segment_count": 0,
+  "untranslated_kana_segments": [],
   "files": [
     {
       "story": "Main/story00010",
@@ -3731,14 +3708,14 @@
       "story": "Main/story200420",
       "path": "assets/AdvStory/import/10/1054d4d4-9522-474b-bdba-2e2a3c61ebce.91aa5.json",
       "source_sha256": "c31d4465a7e0fa17ae53cf41641d3fde61cd96ce8cde948bc09338f15a5f2b47",
-      "translated_sha256": "bdfda20c0ba5459ab195bf24784fb7f5dca40ef70dc94a0d2241635132174574",
+      "translated_sha256": "3fb34ebfe01cf4317a35d5555ac01ae2cd3055156602de931ee621db2fa6603b",
       "segments": 27
     },
     {
       "story": "Main/story200421",
       "path": "assets/AdvStory/import/75/75d2e3b4-cba4-4c46-9c2f-3d3716e03484.1e942.json",
       "source_sha256": "b9479f9ab1195bb86b14fcb1416e95e409c95348653259aa84b8b1dccaed8ebe",
-      "translated_sha256": "15615668baf559258d025f883857f86f30691b6b35df8ca2e2f3fa2c6f79728c",
+      "translated_sha256": "d271ccfa5fa6dedde216cb66d9abe01921df35a4eb13e4abf59e5b753cdefc06",
       "segments": 8
     }
   ]
