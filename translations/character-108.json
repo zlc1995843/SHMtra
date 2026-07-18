@@ -162,7 +162,7 @@
       "story": "Card/story1080101",
       "path": "assets/AdvStory/import/52/5232fdcb-8c44-4d03-ad78-25cca754d293.91bd6.json",
       "source_sha256": "15426b497640e63b31d248c1009aabfcb18ba2ac13047aa206af0930b0d40a14",
-      "translated_sha256": "1910dea56791f9c50ab33578a1717b5f1dbe031c66f72f3d5901a5f0a54e4bcd",
+      "translated_sha256": "7d8faf853d6cc69888e9cf4b3ba196c940c82a640de4db768a1b54138a6b1052",
       "segments": 46
     },
     {
@@ -365,7 +365,7 @@
       "story": "Card/story1080193",
       "path": "assets/AdvStory/import/05/05965284-da57-4418-8719-914d87119c9d.0eb63.json",
       "source_sha256": "7afb44d4b2ab03c367227ed33e5c8da7d4acfb2440bf683d2cef603e04c1ff80",
-      "translated_sha256": "6a73095b62af7f7dde4034c627a4c253c8b066db5e40917396a4afa638a8de92",
+      "translated_sha256": "9ad111f5a91364a5ec77dccc01db69c8ccc71ea9b721e63fd16ea30f20870db8",
       "segments": 76
     },
     {
@@ -477,7 +477,7 @@
       "story": "Card/story1080251",
       "path": "assets/AdvStory/import/bd/bdf02d41-6f5f-411a-a394-f82bf6189541.4a0c9.json",
       "source_sha256": "e6719d1b715d3a57911de3739e960e8af6e90424a10a9663a4c26f80b8405f58",
-      "translated_sha256": "49f65d7263377059ef35515103af25e4522d02d25d1ffda1c6183770d9b931d0",
+      "translated_sha256": "988a37010ea2f19f4a38741920de165502e9a71214f251fa4f82fdbadf86c1c0",
       "segments": 37
     },
     {
@@ -512,7 +512,7 @@
       "story": "Card/story1080263",
       "path": "assets/AdvStory/import/16/16ecfc49-3a2b-4310-9a55-55713d050ebf.bc9ea.json",
       "source_sha256": "063038f13ef787fb4d8406622ec5ae9d062ccbff9db94ea1d6e08633adcd00c8",
-      "translated_sha256": "a2d11d19e399f0b8355534d79e9d1d7d3d4ac57e93dd40314b938b09e881bfd6",
+      "translated_sha256": "8a4308bd0abaa98922f2776afa9014f8da4fd9c1e59c8d8d48fce0869562024b",
       "segments": 114
     },
     {
@@ -540,14 +540,14 @@
       "story": "Card/story1080291",
       "path": "assets/AdvStory/import/e1/e105f5a1-1cd8-454e-8388-a6b74f45a288.f8890.json",
       "source_sha256": "7885a4f36bae885d51e87e7a23d95b55506731d961321091e0167330f9ae20bc",
-      "translated_sha256": "fad2a931b623633ba8d93f55d8fb0a15e7526d9c6f0498102d1f1251f07f0fc1",
+      "translated_sha256": "d46f124d71785520780fac9356c3db37fef28a8658f1b253186d185d3ff2136d",
       "segments": 44
     },
     {
       "story": "Card/story1080292",
       "path": "assets/AdvStory/import/2b/2bac422a-cb15-4110-bf90-7826d214367e.f25e9.json",
       "source_sha256": "1d3c085b1acd8648fb9d0d90fd264cb37a31f1b90816244c83077abf273e8388",
-      "translated_sha256": "11aa70d800c09156182261d7874c88c129997dfaf2b2e086f595c6c459910224",
+      "translated_sha256": "94e5a5d841da82f8b64d353d13ebe09bde2e2271d35a04d36c5ccb5a86e1f4b0",
       "segments": 38
     },
     {
@@ -652,21 +652,21 @@
       "story": "Card/story1080342",
       "path": "assets/AdvStory/import/12/122e1382-f6de-4a05-96b5-a14692d72b69.19e34.json",
       "source_sha256": "4b4b80a296d8163f9a6e9b74ba398c5af5f5ade7bec9e21c8d10740257a82b86",
-      "translated_sha256": "b38f9acde87500e68bf82a153366565ecd55d2517adaaabe439c1cf58ae8291b",
+      "translated_sha256": "3c3c975814d204150d58ecd8ca7eec3f7ad45be1c1b6144cea7141e09d6b8aed",
       "segments": 50
     },
     {
       "story": "Card/story1080343",
       "path": "assets/AdvStory/import/36/36ef325e-21a5-4037-928b-4844ff0543c1.089dc.json",
       "source_sha256": "196218b191fa95ed4cdb641ddc611658b255fcfeaf81d9ab625f9de0292e539f",
-      "translated_sha256": "7d1d78f205f413b0f2fa9608dd170ade525e24829afe6bbf215e5fff78d1ab5b",
+      "translated_sha256": "aa59f8dd6180b237b13c2b2c890082940b9247a71acf0b35e1b5abe1e94dc2f0",
       "segments": 90
     },
     {
       "story": "Card/story1080351",
       "path": "assets/AdvStory/import/fc/fc5ccbad-2c9d-4a6f-b431-d1fc2206ff91.8dde8.json",
       "source_sha256": "1ed0b65cf08370ad865ec0078b2b12cd788848f286d2b8590561318365af83fd",
-      "translated_sha256": "56d33bae3c22e3281d10543018b22d7ef306bcfb0bafacd8a864a67de85ff83b",
+      "translated_sha256": "e5948697ee823feddde9406537e09bc97c9105fb39d5dd9f95858d23b9ae4a77",
       "segments": 51
     },
     {
@@ -680,7 +680,7 @@
       "story": "Card/story1080353",
       "path": "assets/AdvStory/import/e0/e0a384e8-dcf2-4fe6-8ad0-21247479d74d.d59a9.json",
       "source_sha256": "c12eb04b406d1adf81c5146a3ad15dca79d994bb094a4ea16dcc74f33ce85cfc",
-      "translated_sha256": "86c8381ad60116ebbe03be4956f1d26235935c5cba934034df0c5de26c4536d1",
+      "translated_sha256": "14d34247a0a313bf0ea0cbe456b0f5bc483bbd2ba04d8c35ee5fffceff02cca9",
       "segments": 111
     },
     {

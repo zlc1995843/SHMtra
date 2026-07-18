@@ -248,12 +248,50 @@ def localize_speaker_labels(script: str, glossary: list[dict[str, str]]) -> str:
         if label is not None:
             localized = replace_label(label)
             return match.group("prefix") + cast + "," + localized + match.group("ending")
-        localized = exact.get(cast, cast)
+        localized = replace_label(cast)
         if localized == cast:
             return match.group(0)
         return match.group("prefix") + cast + "," + localized + match.group("ending")
 
     return pattern.sub(rewrite, script)
+
+
+def limit_visible_text_lines(script: str, maximum_lines: int = 2) -> str:
+    """Reflow each visible message block so the game never renders three lines."""
+    if maximum_lines != 2:
+        raise ValueError("Only the two-line dialogue layout is supported")
+    lines = script.replace("\r\n", "\n").replace("\r", "\n").split("\n")
+    result: list[str] = []
+    index = 0
+    break_after = set("，。！？；：、…）】》」』~～!?,.;:")
+    while index < len(lines):
+        if not is_translatable_line(lines[index]):
+            result.append(lines[index])
+            index += 1
+            continue
+        end = index
+        block: list[str] = []
+        while end < len(lines) and is_translatable_line(lines[end]):
+            block.append(lines[end].strip())
+            end += 1
+        if len(block) <= maximum_lines:
+            result.extend(lines[index:end])
+            index = end
+            continue
+        text = "".join(block)
+        midpoint = len(text) // 2
+        candidates = [
+            position + 1
+            for position, character in enumerate(text[:-1])
+            if character in break_after
+        ]
+        split_at = min(candidates, key=lambda value: abs(value - midpoint)) if candidates else midpoint
+        # Avoid an extremely short line when punctuation happens only near an edge.
+        if split_at < len(text) // 3 or split_at > (len(text) * 2) // 3:
+            split_at = midpoint
+        result.extend((text[:split_at], text[split_at:]))
+        index = end
+    return "\r\n".join(result)
 
 
 def extract_segments(story_name: str, script: str) -> tuple[list[str], list[Segment]]:
@@ -521,6 +559,47 @@ def unchanged_directives(source: str, translated: str) -> bool:
     return directives(source) == directives(translated)
 
 
+def reflow_existing_translations(repo_root: Path) -> tuple[int, int]:
+    """Apply the two-line layout to every file recorded by translation manifests."""
+    glossary, _ = load_glossary(repo_root / "Lang/CHS/translation-glossary.json")
+    changed_files = 0
+    changed_blocks = 0
+    for manifest_path in sorted((repo_root / "translations").glob("*.json")):
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig"))
+        manifest_changed = False
+        for item in manifest.get("files", []):
+            relative = Path(str(item["path"]))
+            output_path = repo_root / relative
+            payload = output_path.read_bytes()
+            document, script = load_text_asset(payload, str(item["story"]))
+            _, before = extract_segments(str(item["story"]), script)
+            oversized = sum(1 for segment in before if len(segment.indices) > 2)
+            reflowed = limit_visible_text_lines(
+                localize_speaker_labels(script, glossary)
+            )
+            if reflowed != script:
+                document[5][0][2] = reflowed
+                output_payload = json.dumps(
+                    document, ensure_ascii=False, separators=(",", ":")
+                ).encode("utf-8")
+                atomic_write(output_path, output_payload)
+                changed_files += 1
+                changed_blocks += oversized
+            else:
+                output_payload = payload
+            translated_sha256 = sha256_bytes(output_payload)
+            if item.get("translated_sha256") != translated_sha256:
+                item["translated_sha256"] = translated_sha256
+                manifest_changed = True
+        if manifest_changed:
+            atomic_write(
+                manifest_path,
+                json.dumps(manifest, ensure_ascii=False, indent=2).encode("utf-8")
+                + b"\n",
+            )
+    return changed_files, changed_blocks
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--game-root", type=Path, default=DEFAULT_GAME_ROOT)
@@ -539,6 +618,11 @@ def main() -> int:
     parser.add_argument("--cdn-root", default=DEFAULT_CDN_ROOT)
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--download-only", action="store_true")
+    parser.add_argument(
+        "--reflow-existing",
+        action="store_true",
+        help="Rewrite all manifested translations to use at most two visible lines.",
+    )
     parser.add_argument(
         "--export-partial",
         action="store_true",
@@ -560,8 +644,13 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    game_root = args.game_root.resolve()
     repo_root = args.repo_root.resolve()
+    if args.reflow_existing:
+        changed_files, changed_blocks = reflow_existing_translations(repo_root)
+        print(f"Reflowed {changed_blocks} message blocks in {changed_files} files")
+        return 0
+
+    game_root = args.game_root.resolve()
     if args.story_prefix and not args.group:
         parser.error("--group is required when --story-prefix is used")
     if args.group and not args.story_prefix:
@@ -708,6 +797,7 @@ def main() -> int:
         if not unchanged_directives(story_scripts[logical_name], translated_script):
             raise ValueError(f"A directive changed in {logical_name}")
         translated_script = localize_speaker_labels(translated_script, glossary)
+        translated_script = limit_visible_text_lines(translated_script)
         for _, segments in [extract_segments(logical_name, translated_script)]:
             for segment in segments:
                 if JAPANESE_RE.search(segment.source):
