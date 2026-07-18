@@ -6,14 +6,10 @@
   "bundle_config": "config.53878.json",
   "story_count": 123,
   "segment_count": 7683,
-  "partial": true,
-  "translated_segment_count": 7680,
-  "pending_segment_count": 3,
-  "untranslated_kana_segments": [
-    "Card/story1070483:0124",
-    "Card/story1070483:0125",
-    "Card/story1070483:0126"
-  ],
+  "partial": false,
+  "translated_segment_count": 7683,
+  "pending_segment_count": 0,
+  "untranslated_kana_segments": [],
   "files": [
     {
       "story": "Card/story1070001",
@@ -873,7 +869,7 @@
       "story": "Card/story1070483",
       "path": "assets/AdvStory/import/81/814bceae-8bf7-4f75-a4c0-c4a28ef321bf.e7d44.json",
       "source_sha256": "67ddd4ab132822dd804afc707be08e85563c8df8ac34c02fa25172d795da0fdc",
-      "translated_sha256": "940d47a2a0b98c224a234e65f44ccfa0b57ea2e0bab3e2867742ddb7b597ed1f",
+      "translated_sha256": "ce1145b7183c13a0fd282352199d09185972a44dd8d2a805148339032bb2c94b",
       "segments": 126
     }
   ]
