@@ -17,49 +17,9 @@
   "story_count": 69,
   "segment_count": 1522,
   "partial": true,
-  "translated_segment_count": 1481,
-  "pending_segment_count": 41,
+  "translated_segment_count": 1521,
+  "pending_segment_count": 1,
   "untranslated_kana_segments": [
-    "Ordinary/default_2107003:0003",
-    "Ordinary/default_2108001:0001",
-    "Ordinary/default_2108001:0002",
-    "Ordinary/default_2108001:0003",
-    "Ordinary/default_2108002:0001",
-    "Ordinary/default_2108002:0002",
-    "Ordinary/default_2108002:0003",
-    "Ordinary/default_2108003:0001",
-    "Ordinary/default_2108003:0002",
-    "Ordinary/default_2108003:0003",
-    "Ordinary/default_2109001:0001",
-    "Ordinary/default_2109001:0002",
-    "Ordinary/default_2109001:0003",
-    "Ordinary/default_2109002:0001",
-    "Ordinary/default_2109002:0002",
-    "Ordinary/default_2109002:0003",
-    "Ordinary/default_2109003:0001",
-    "Ordinary/default_2109003:0002",
-    "Ordinary/default_2109003:0003",
-    "Ordinary/default_2110001:0001",
-    "Ordinary/default_2110001:0002",
-    "Ordinary/default_2110001:0003",
-    "Ordinary/default_2110002:0001",
-    "Ordinary/default_2110002:0002",
-    "Ordinary/default_2110002:0003",
-    "Ordinary/default_2110003:0001",
-    "Ordinary/default_2110003:0002",
-    "Ordinary/default_2110003:0003",
-    "Ordinary/default_2111001:0001",
-    "Ordinary/default_2111001:0002",
-    "Ordinary/default_2111001:0003",
-    "Ordinary/default_2111002:0001",
-    "Ordinary/default_2111002:0002",
-    "Ordinary/default_2111002:0003",
-    "Ordinary/default_2301001:0001",
-    "Ordinary/default_2301001:0002",
-    "Ordinary/default_2301002:0001",
-    "Ordinary/default_2301002:0002",
-    "Ordinary/default_2301002:0003",
-    "Ordinary/default_2301003:0001",
     "Ordinary/default_2301003:0002"
   ],
   "files": [
@@ -445,105 +405,105 @@
       "story": "Ordinary/default_2107003",
       "path": "assets/AdvStory/import/3a/3a4b75ef-ee73-4a97-8aa4-a0129ae70eda.c1288.json",
       "source_sha256": "e5ca24257b5f389fbe505a5e486e071d43307fcbc5d96e0488b1065e2c07ee1f",
-      "translated_sha256": "d90260554db87dd01364acf84b0648b17a2b5d14265682e027409ee2892cd7d3",
+      "translated_sha256": "c3b4170951f53f127a747e1adb5d2749034c35e63bfe67781dee393aeeef8b7b",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2108001",
       "path": "assets/AdvStory/import/be/be7ac8f5-530b-4bd8-acbd-773fddca162a.4c298.json",
       "source_sha256": "cd536a4277619a88890eb8cf2e58498e0370e4606fcb4f3b65737b4970313c3b",
-      "translated_sha256": "04f111746ba5083e3d761fe848ee4e7ba4c298c74ac84553d019e3d19aecc345",
+      "translated_sha256": "991328329bc5d2a51732d92ee2c04c4883ff316a6ab7bbf929c92a8043a1530a",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2108002",
       "path": "assets/AdvStory/import/42/42b75398-139f-4326-bfef-8f75b3e54b03.c0422.json",
       "source_sha256": "06bbe6cb6449400e57a691ad3a248323ec9e0af963f46c4cc236ef96db4ea203",
-      "translated_sha256": "ff63957e2a00d06f372ebcec47ae7ba5330d80bb3855e21bdd2e4415d87a2c91",
+      "translated_sha256": "e0c630eb218d9e2bc42f1fd186ab1b56fa22967ae9673aaad8349b1fb724a8a3",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2108003",
       "path": "assets/AdvStory/import/60/60da372d-d986-4c83-adc1-61f7e69ac434.26b38.json",
       "source_sha256": "8d9c820ae5961b10bd251eb08e495122f4813c30ff7343684d6a220fdf7e1c2b",
-      "translated_sha256": "8bb840da93731f01b06a96daae2d42405125120ab20886ad0f4a4e5b4d4e74ab",
+      "translated_sha256": "fd555149bae7f59b3bd51d2b3672a2ab5ca305c25a530ecf8c7fa220703e3015",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2109001",
       "path": "assets/AdvStory/import/17/17c98f65-4c2c-408c-8ab7-0c162456d1a6.06c17.json",
       "source_sha256": "ceced3d888aeb9c35c213cde05cdbf7d4282aaf387ca33e6ae0e37866632c5cb",
-      "translated_sha256": "2f1cea1df124aa4c6f7a8c7c328ed8fb770580372c091581e5ed3b29c6928159",
+      "translated_sha256": "acebc6dc3ee5b43fac5393601c7396791d63e01cab8be9283fb482f0c21f42e8",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2109002",
       "path": "assets/AdvStory/import/4e/4e86a0ae-7780-4de7-a3a6-0137a6352142.9cc9a.json",
       "source_sha256": "b87bf61ffcc39de8715da3ebf75d8de82245634c3deefc9207c9bb596e534a3d",
-      "translated_sha256": "1fd5e048b16aada76da540d43556d5d85b38a5d98853af0f0fa48c51f108dce1",
+      "translated_sha256": "7442b9872cde2ddb5b36431935829d81188398be37af4a843bfe590efd57925f",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2109003",
       "path": "assets/AdvStory/import/56/560bfc37-4792-42eb-8801-b3a4b6727bbf.d31ef.json",
       "source_sha256": "7a2105b58d20f76251ebc7ea23b73230569afb84075ecccc2915a0c435a6d301",
-      "translated_sha256": "ab13b83b6f430e35336eea2c7526e26e1d89ccfe6c6f584e022ce250381c54fe",
+      "translated_sha256": "2c876e1f85be9920da723f29f26e84011a90f4bebb3bc18651e35e08e76dcbdb",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2110001",
       "path": "assets/AdvStory/import/78/788e54c9-3002-464d-962a-6d8145623de9.2d070.json",
       "source_sha256": "007694058a3a22632748f842cdb8d2b2943d357212d2557c784bfc8a372c3966",
-      "translated_sha256": "aefbde340cf12222849b13b6e70ef1d5b499063504f983afc861add2780f28d3",
+      "translated_sha256": "d3ba4e5dff4c6d20b5b1cc58af8998ca54f28e213490779a7e1188115bcd7cc2",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2110002",
       "path": "assets/AdvStory/import/9d/9d348667-c5df-4df4-b34b-8baa9a8b125d.74332.json",
       "source_sha256": "7aa2e2492c918242cd4709c17500f2e385e35b8a5157ae28411aca1df0fce7d0",
-      "translated_sha256": "31e73d3f4f55dcb4cd02f8e5095aca608d632aff133aa49a64e1d074f7f28ab4",
+      "translated_sha256": "956d225d4e4cfe322e00697ec9ff45ffeca4ded51ce6e3185d13ef5eb060eeac",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2110003",
       "path": "assets/AdvStory/import/1c/1c82edf1-eebd-4076-94c9-c20c4d40aa22.a56fa.json",
       "source_sha256": "aa22f487c07d4e4b79c73b9cb47fe06c31067b5472e4823b8573a30c0a38eb85",
-      "translated_sha256": "16467012caa38d840001377ffe7c524e0dd533f45ae4ca056a79f46c985e000a",
+      "translated_sha256": "b3cd154428ed5ab98e85984bdf9353f61d607ebde552a8a405590c04ca7d2cb4",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2111001",
       "path": "assets/AdvStory/import/c9/c90ac47f-4723-44db-97e2-e7f5257f3899.1f810.json",
       "source_sha256": "7222312103c1495dfe5b249141298bc0a79d943909bba45bc0327358f0e23c48",
-      "translated_sha256": "9dd8b1bc03ef87a5fd0cd6f41aefa2f0d37ed1a1d6833259ead538473d9082f4",
+      "translated_sha256": "123bc9ecdf13d060f678f5448e942afe35dd54245638086d5672624ee6f36f67",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2111002",
       "path": "assets/AdvStory/import/50/50b2391b-6c6b-413e-9dee-9272dd927a1f.628e2.json",
       "source_sha256": "16fb459ed29ceb09a1a087e1f34e0c5c511c8fdb6d7a98bf2f302d0938b2aa9a",
-      "translated_sha256": "682593cd55ee6506cdcab4b384b3a82a047f3ccd397d7c8dd7e5041fda948b8b",
+      "translated_sha256": "6198d5f00ebee4cd536fcf37f722eeba17cbbda32bfaccdca52ba77ae9a92c49",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2301001",
       "path": "assets/AdvStory/import/4f/4f85d39f-ce87-4238-9e7b-7942e42ecde0.3b57f.json",
       "source_sha256": "fa39ea1396d6e16f999a03e732741c66ec088ee0c0af909c3e307bccffe26d7b",
-      "translated_sha256": "b3317ff6634b920b0b33afc9171ae3f5edd589279327cab2ed6052ad867fba0a",
+      "translated_sha256": "806e414413cfec570c13d0b9b21fd2f83550c95559cba516b861bad298112af9",
       "segments": 2
     },
     {
       "story": "Ordinary/default_2301002",
       "path": "assets/AdvStory/import/57/57fde22f-3f54-4414-b9fe-0ed89dd529b7.30f60.json",
       "source_sha256": "70959f820cdb51ba4dbe72a58038ca6b4468537579e26a787dfb178c85190cfa",
-      "translated_sha256": "0a13265c021a34d8a97e48055bd982e2cf05af9c519903c748f463cc3a94c252",
+      "translated_sha256": "5ab53d29d23ea01f55c5550625d7d862a301f8eaefeb0bcdfa6f6481293a18bf",
       "segments": 3
     },
     {
       "story": "Ordinary/default_2301003",
       "path": "assets/AdvStory/import/79/79adc775-a9c6-4c97-ac4f-565a435dbaf5.96ac7.json",
       "source_sha256": "c590032f718c1855799f03c604a5a8143784b14963416f0b845220a7d8a7a985",
-      "translated_sha256": "57b823b7546a26047381d517c50f148f21f1ae11b73976def09d078e29f170dc",
+      "translated_sha256": "1878e722601725cdf109428e402c7201702ee721505e55bb3899fca96cfc3900",
       "segments": 2
     }
   ]
