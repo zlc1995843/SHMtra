@@ -106,7 +106,9 @@ def newest_advstory_config(game_root: Path) -> Path:
     return candidates[0]
 
 
-def load_story_catalog(config_path: Path, character_id: int) -> list[StoryAsset]:
+def load_catalog_by_prefixes(
+    config_path: Path, prefixes: tuple[str, ...]
+) -> list[StoryAsset]:
     config = json.loads(config_path.read_text(encoding="utf-8-sig"))
     uuids = config.get("uuids", [])
     raw_versions = config.get("versions", {}).get("import", [])
@@ -114,13 +116,12 @@ def load_story_catalog(config_path: Path, character_id: int) -> list[StoryAsset]
         int(raw_versions[index]): str(raw_versions[index + 1])
         for index in range(0, len(raw_versions) - 1, 2)
     }
-    prefix = f"Card/story{character_id:03d}"
     result: list[StoryAsset] = []
     for raw_index, path_info in config.get("paths", {}).items():
         if not isinstance(path_info, list) or not path_info:
             continue
         logical_name = str(path_info[0])
-        if not logical_name.startswith(prefix):
+        if not logical_name.startswith(prefixes):
             continue
         index = int(raw_index)
         if index not in versions or not 0 <= index < len(uuids):
@@ -130,8 +131,12 @@ def load_story_catalog(config_path: Path, character_id: int) -> list[StoryAsset]
         )
     result.sort(key=lambda item: item.logical_name)
     if not result:
-        raise ValueError(f"No card stories found for character {character_id}")
+        raise ValueError(f"No stories found for prefixes: {', '.join(prefixes)}")
     return result
+
+
+def load_story_catalog(config_path: Path, character_id: int) -> list[StoryAsset]:
+    return load_catalog_by_prefixes(config_path, (f"Card/story{character_id:03d}",))
 
 
 def request_bytes(url: str, retries: int = 10, timeout: int = 45) -> bytes:
@@ -518,6 +523,16 @@ def main() -> int:
     parser.add_argument("--game-root", type=Path, default=DEFAULT_GAME_ROOT)
     parser.add_argument("--repo-root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--character", type=int, default=108)
+    parser.add_argument(
+        "--story-prefix",
+        action="append",
+        default=[],
+        help="Translate every catalog story under this logical path prefix. Repeatable.",
+    )
+    parser.add_argument(
+        "--group",
+        help="Stable work/manifest name used with --story-prefix (for example collaboration).",
+    )
     parser.add_argument("--cdn-root", default=DEFAULT_CDN_ROOT)
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--download-only", action="store_true")
@@ -544,10 +559,21 @@ def main() -> int:
 
     game_root = args.game_root.resolve()
     repo_root = args.repo_root.resolve()
-    work_root = repo_root / ".work" / f"character-{args.character:03d}"
+    if args.story_prefix and not args.group:
+        parser.error("--group is required when --story-prefix is used")
+    if args.group and not args.story_prefix:
+        parser.error("--story-prefix is required when --group is used")
+    if args.group and not re.fullmatch(r"[A-Za-z0-9._-]+", args.group):
+        parser.error("--group may contain only letters, digits, dot, underscore, and hyphen")
+    unit_name = args.group or f"character-{args.character:03d}"
+    work_root = repo_root / ".work" / unit_name
     source_root = work_root / "source"
     config_path = newest_advstory_config(game_root)
-    catalog = load_story_catalog(config_path, args.character)
+    catalog = (
+        load_catalog_by_prefixes(config_path, tuple(args.story_prefix))
+        if args.story_prefix
+        else load_story_catalog(config_path, args.character)
+    )
     print(f"Catalog: {config_path.name}; stories: {len(catalog)}")
 
     downloaded = 0
@@ -705,7 +731,9 @@ def main() -> int:
 
     manifest = {
         "format_version": 1,
-        "character_id": args.character,
+        "character_id": None if args.story_prefix else args.character,
+        "group": args.group,
+        "story_prefixes": args.story_prefix,
         "model": args.model,
         "glossary_sha256": glossary_fingerprint,
         "bundle_config": config_path.name,
@@ -717,7 +745,7 @@ def main() -> int:
         "untranslated_kana_segments": sorted(set(untranslated)),
         "files": manifest_files,
     }
-    manifest_path = repo_root / "translations" / f"character-{args.character:03d}.json"
+    manifest_path = repo_root / "translations" / f"{unit_name}.json"
     atomic_write(
         manifest_path,
         json.dumps(manifest, ensure_ascii=False, indent=2).encode("utf-8") + b"\n",
