@@ -1,0 +1,29 @@
+{
+  "format_version": 1,
+  "character_id": 200,
+  "model": "deepseek-v4-pro",
+  "glossary_sha256": "e63228f939948ba21d16e05e894ec3ab225cdf09a21c2702158274912b3bddc8",
+  "bundle_config": "config.53878.json",
+  "story_count": 2,
+  "segment_count": 122,
+  "partial": false,
+  "translated_segment_count": 122,
+  "pending_segment_count": 0,
+  "untranslated_kana_segments": [],
+  "files": [
+    {
+      "story": "Card/story2000001",
+      "path": "assets/AdvStory/import/dd/dd8f32ac-7dd0-4811-bbde-5e4076113058.74a86.json",
+      "source_sha256": "308c97a43f06cea07977026ee3ad3bc4bfa443792ae3ea1ebb5ca257c1eefb5a",
+      "translated_sha256": "584bc22166721ef896f0a36abe57415187449fc5f4314cc03295e446f1f08959",
+      "segments": 48
+    },
+    {
+      "story": "Card/story2000002",
+      "path": "assets/AdvStory/import/97/977e43dc-86c4-45e1-85e0-90e0ea58cb8e.3ffb3.json",
+      "source_sha256": "b06919c24b3bf28a42b5a60119f0bfe49a6b91db9b6041a4938998ee0c9df566",
+      "translated_sha256": "b1449ec6ac9f2ac2e5837239610e31792addc2c7a194aeaf09e0a5d4e837ea88",
+      "segments": 74
+    }
+  ]
+}
