@@ -107,7 +107,9 @@ def newest_advstory_config(game_root: Path) -> Path:
 
 
 def load_catalog_by_prefixes(
-    config_path: Path, prefixes: tuple[str, ...]
+    config_path: Path,
+    prefixes: tuple[str, ...],
+    exclude_prefixes: tuple[str, ...] = (),
 ) -> list[StoryAsset]:
     config = json.loads(config_path.read_text(encoding="utf-8-sig"))
     uuids = config.get("uuids", [])
@@ -122,6 +124,8 @@ def load_catalog_by_prefixes(
             continue
         logical_name = str(path_info[0])
         if not logical_name.startswith(prefixes):
+            continue
+        if exclude_prefixes and logical_name.startswith(exclude_prefixes):
             continue
         index = int(raw_index)
         if index not in versions or not 0 <= index < len(uuids):
@@ -622,6 +626,12 @@ def main() -> int:
         help="Translate every catalog story under this logical path prefix. Repeatable.",
     )
     parser.add_argument(
+        "--exclude-story-prefix",
+        action="append",
+        default=[],
+        help="Exclude a logical path prefix selected by --story-prefix. Repeatable.",
+    )
+    parser.add_argument(
         "--group",
         help="Stable work/manifest name used with --story-prefix (for example collaboration).",
     )
@@ -672,7 +682,11 @@ def main() -> int:
     source_root = work_root / "source"
     config_path = newest_advstory_config(game_root)
     catalog = (
-        load_catalog_by_prefixes(config_path, tuple(args.story_prefix))
+        load_catalog_by_prefixes(
+            config_path,
+            tuple(args.story_prefix),
+            tuple(args.exclude_story_prefix),
+        )
         if args.story_prefix
         else load_story_catalog(config_path, args.character)
     )
@@ -837,6 +851,7 @@ def main() -> int:
         "character_id": None if args.story_prefix else args.character,
         "group": args.group,
         "story_prefixes": args.story_prefix,
+        "excluded_story_prefixes": args.exclude_story_prefix,
         "model": args.model,
         "glossary_sha256": glossary_fingerprint,
         "bundle_config": config_path.name,
