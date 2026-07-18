@@ -106,7 +106,7 @@
       "story": "Card/story1090272",
       "path": "assets/AdvStory/import/4f/4f12a420-c3ff-48f3-8a08-b89f81b65e08.edc03.json",
       "source_sha256": "f1a7db18b41400e5ffcd2aab73c5b7a7098cf6afccb0ef4a870dd8c8c3443655",
-      "translated_sha256": "209a6d761e3dd53149ff8db9940c15e19802999b3a89f61ee6ad42de9e7f48da",
+      "translated_sha256": "ba26f5cf5976bb9730df6bd948a81dcd7cad1a7f1f7daacd8767f81ed7109b7d",
       "segments": 56
     },
     {
@@ -169,7 +169,7 @@
       "story": "Card/story1090312",
       "path": "assets/AdvStory/import/df/df9ee4eb-d118-4bcd-843e-0c7874fd9cff.4094a.json",
       "source_sha256": "73cce2e7d9344a1648891d2e48e5667b8e1ed967cc188d455778917c4a6c1f9d",
-      "translated_sha256": "2fa49cf47257dde348cdda1f11279f5e8bcd6f0f227ee15e9e9b75ef056d9b79",
+      "translated_sha256": "54560877466fb7d07fbf376b3c0500c0a392b7d622355b7640a46ac751f1c710",
       "segments": 82
     },
     {
@@ -211,7 +211,7 @@
       "story": "Card/story1090342",
       "path": "assets/AdvStory/import/e5/e5b0df81-52c4-47ef-bb1d-fd083a28a2cb.814f8.json",
       "source_sha256": "a29076eff925482cf4ce325023bb39c3625d68d6e40af58f4ddb2eb8733acf4b",
-      "translated_sha256": "82e4433ea5949b488ec71bd1d17501abf9e4acc2749f379b6d1add275b45614c",
+      "translated_sha256": "405be0acb1f80ca85c220ea69819a977f405971f8f9494f05f454806e608baa7",
       "segments": 49
     },
     {
@@ -379,7 +379,7 @@
       "story": "Card/story1090432",
       "path": "assets/AdvStory/import/5c/5c8cf101-e18d-427c-91ec-0d500b45e96c.eff11.json",
       "source_sha256": "1a139f41a17cce5fa4752727516a1c55d631aa5f8e7fa067078e7c798489a494",
-      "translated_sha256": "ba9a85b827f90fed471035bbce9b5d48ff0d61864c03b39c1fd2cf704a166635",
+      "translated_sha256": "e31d7e412caa03796e33383ad0ca882e5277893b0a18a2bbfa141af018c2b97c",
       "segments": 52
     },
     {
@@ -442,7 +442,7 @@
       "story": "Card/story1090492",
       "path": "assets/AdvStory/import/5f/5fe25b49-58ae-4f53-b3eb-2c1be2c63134.f5ae1.json",
       "source_sha256": "1af71b71abc3928fc0c7725fcbb1f57d46eae4c6d4e82b2b4c41783ae54d7758",
-      "translated_sha256": "d295c6fb01547af0200c446c37fe6c9b101332c4c939c4328f28c25826ba8f50",
+      "translated_sha256": "b8cd5d19f5fe18bf1cf3ad48d7de4abd15672876ac213562230e08250ac0a4b0",
       "segments": 59
     },
     {

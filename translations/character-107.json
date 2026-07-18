@@ -50,7 +50,7 @@
       "story": "Card/story1070033",
       "path": "assets/AdvStory/import/87/87b2b874-8f52-44a3-b5c4-39be8e782f57.fbb9d.json",
       "source_sha256": "09e60a8557e8c3342b056287ebb74d8a8744da44a0cbad57cf4524b17258bc37",
-      "translated_sha256": "5f1d313844fadbd1cd82fc080bcaaa0979589a7643ec5ac3feb41ff5caade187",
+      "translated_sha256": "6468a03f89ce15c387c23f72b32446ed1efa5203fc96c4b0dbb10c01af5fcb98",
       "segments": 89
     },
     {
@@ -281,7 +281,7 @@
       "story": "Card/story1070143",
       "path": "assets/AdvStory/import/47/4737aaa2-c414-483f-a6a0-f6420872d9e1.d26c8.json",
       "source_sha256": "71fa94cbbda97e02598d73363f705b62d6d3c4e32814495bb67d6fe7c5f27311",
-      "translated_sha256": "081a2f4274eb01b95ed1af1758e98b38683ec508be2ef92d922193138b25d6a4",
+      "translated_sha256": "1222a79a909d1a4c211ed8cc226d65063b795f11ca42765bae5cf9e77e9b36a4",
       "segments": 96
     },
     {
@@ -302,7 +302,7 @@
       "story": "Card/story1070153",
       "path": "assets/AdvStory/import/bb/bb983636-6051-4aeb-a436-7787eca32bea.f1c9c.json",
       "source_sha256": "cdbb20fde7c4887a56cb211ed483e54bfdb2a40aa5bb63f39ad238421805af3c",
-      "translated_sha256": "5b75f7c29320a4ea78857f907773935d99b58080a238ca17109c68a863f9e105",
+      "translated_sha256": "430aa2a3d84e6e7130f7d58f3874fbca1b75aea324f97c8321c5ada386fd2b3a",
       "segments": 94
     },
     {
@@ -323,7 +323,7 @@
       "story": "Card/story1070163",
       "path": "assets/AdvStory/import/52/52fb36c6-097e-4e76-9156-9f28ba342bec.d9b8f.json",
       "source_sha256": "8c6342160df269aab603eb31292e68b039187a2ff6462347c8d1f85a1141cdc5",
-      "translated_sha256": "20d1d83dd3670b170e978b8536cf1e5b2ca61a0c9b2e5d1492a6c4f3579d6a14",
+      "translated_sha256": "6b12221b96633e81e90245daf80f3e91fc3198747fa566032ccff303255c590b",
       "segments": 70
     },
     {
@@ -519,7 +519,7 @@
       "story": "Card/story1070261",
       "path": "assets/AdvStory/import/90/9013fd72-5664-456b-aa9f-3281e2e3a560.e65f0.json",
       "source_sha256": "b71765b8a9aa747164b2c36ebca8398a05ca01d8f23e1f70107aaa476769571e",
-      "translated_sha256": "60c406e35f074d2384b27c9f260eb1f42f80ffe704577bd64c78bf4eda7bca06",
+      "translated_sha256": "db729e6e204ab3e80a935f7edda3749e7cfd6dbaea0b8289a88591302bb37fa8",
       "segments": 56
     },
     {
@@ -687,14 +687,14 @@
       "story": "Card/story1070361",
       "path": "assets/AdvStory/import/12/12f5f37a-df0d-4dac-93cb-a3996e0c31dc.8f6eb.json",
       "source_sha256": "607b885540cdc45964a8fdb9d7c6d98e4a081a3301bf54afe11a590da8eeb91f",
-      "translated_sha256": "09dbcd74caec973f488a4644c49483781c4e6959c64d0d2dcabd82ab4d81fd4e",
+      "translated_sha256": "3f1a1ba1bdad50c773185977ad030650955115a7d0f38d412511e7ae97083d29",
       "segments": 46
     },
     {
       "story": "Card/story1070362",
       "path": "assets/AdvStory/import/45/45c02c40-1b48-4d2e-908f-7691435bf48c.3d354.json",
       "source_sha256": "818fd39be722b865317b3df9ee42d093bddc1eee2d19d303775107451a77ddc8",
-      "translated_sha256": "aedb0ad6a58528059038b423ffdf08b0fddf3644c08c21332246858ef05a5471",
+      "translated_sha256": "5421f26b407fced113e7c48c873f8ad17a5682f14124452298e4034c969ecbc2",
       "segments": 74
     },
     {
@@ -799,7 +799,7 @@
       "story": "Card/story1070422",
       "path": "assets/AdvStory/import/65/65c19fb5-b98f-4dbc-9f6a-820ea017efeb.4c889.json",
       "source_sha256": "70705c4bea0be23c6dc1dbe0a27fbfd3d98698c8db71e94351d6cd2562dc5b9b",
-      "translated_sha256": "c189c16b24a5b995d5c2472c12a5d7cd08034633dc4e636cf15d4c86f7a569aa",
+      "translated_sha256": "b71c603f4f92e488491bdbf0c1d1c7419996bb80f1c8837d8a05a136c6c5c71c",
       "segments": 65
     },
     {
@@ -841,7 +841,7 @@
       "story": "Card/story1070472",
       "path": "assets/AdvStory/import/d8/d8e88b46-d177-49cb-b166-7584eea5431c.8d42e.json",
       "source_sha256": "d148904692a2579af66b98fa10d47adf6a78f19d45c301845c3c32b15b06b490",
-      "translated_sha256": "d171d645b52b5e906fe9034a6a7532fc416c4ee9be6f84261b314abbe75488a2",
+      "translated_sha256": "d4f8f4b9e63157671fb5942b7ec7295f6c980ce80582bc00f34045f32c35e4b2",
       "segments": 57
     },
     {
