@@ -239,6 +239,11 @@ def localize_speaker_labels(script: str, glossary: list[dict[str, str]]) -> str:
     def replace_label(value: str) -> str:
         result = value
         for source, target in replacements:
+            # B/P-number suffixes select an engine cast variant and must not be
+            # shown to players as part of the localized character name.
+            result = re.sub(
+                re.escape(source) + r"(?:B|P\d+)", target, result
+            )
             result = result.replace(source, target)
         return result
 

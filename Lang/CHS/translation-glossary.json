@@ -39,6 +39,8 @@
     {"source": "紅葉", "target": "红叶", "category": "角色名"},
     {"source": "双葉", "target": "双叶", "category": "角色名"},
     {"source": "スタッフ", "target": "工作人员", "category": "身份称呼"},
+    {"source": "みんな", "target": "大家", "category": "群体称呼"},
+    {"source": "住人", "target": "住户", "category": "身份称呼"},
     {"source": "鐘楼館", "target": "钟楼馆", "category": "地名"},
     {"source": "お兄ちゃん先生", "target": "哥哥老师", "category": "称呼"},
     {"source": "お兄ちゃん", "target": "哥哥", "category": "称呼"},
