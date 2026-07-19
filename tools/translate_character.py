@@ -214,7 +214,7 @@ def is_translatable_line(line: str) -> bool:
 
 
 def localize_speaker_labels(script: str, glossary: list[dict[str, str]]) -> str:
-    """Translate visible labels of ShowCastMessage and ShowMessage directives.
+    """Translate visible labels of all scenario message directives.
 
     The second field is the engine's internal cast key and must stay Japanese.
     The optional third field is the label rendered in the message box.  When a
@@ -235,7 +235,8 @@ def localize_speaker_labels(script: str, glossary: list[dict[str, str]]) -> str:
     # glossary: enforcing them in dialogue can reject natural translations.
     exact.update({"ニアP1": "妮娅", "全員": "众人"})
     pattern = re.compile(
-        r"^(?P<prefix>[ \t]*@(?:ShowCastMessage|ShowMessage),)(?P<cast>[^,\r\n]*)"
+        r"^(?P<prefix>[ \t]*@(?:ShowCastMessage|ShowSkitCastMessage|ShowMessage),)"
+        r"(?P<cast>[^,\r\n]*)"
         r"(?:,(?P<label>[^\r\n]*))?(?P<ending>\r?)$",
         flags=re.MULTILINE,
     )
@@ -249,6 +250,10 @@ def localize_speaker_labels(script: str, glossary: list[dict[str, str]]) -> str:
                 re.escape(source) + r"(?:B|P\d+)", target, result
             )
             result = result.replace(source, target)
+        # Display-only aliases must not enter the prose glossary, where they
+        # would over-constrain natural dialogue translations.
+        result = result.replace("ジャージの女性", "穿运动服的女性")
+        result = result.replace("斯卡蕾特さん", "斯卡蕾特小姐")
         return result
 
     def rewrite(match: re.Match[str]) -> str:
