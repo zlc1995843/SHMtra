@@ -308,6 +308,15 @@ def limit_visible_text_lines(script: str, maximum_lines: int = 2) -> str:
     return "\r\n".join(result)
 
 
+def normalize_fixed_translation_terms(script: str) -> str:
+    """Normalize reviewed wording that must survive cache-based re-exports."""
+    return script.replace(
+        "就算是绝美少女紬", "就算是超绝美少女紬"
+    ).replace(
+        "超绝美少女也挺……", "就算是超绝美少女……"
+    )
+
+
 def extract_segments(story_name: str, script: str) -> tuple[list[str], list[Segment]]:
     lines = script.replace("\r\n", "\n").replace("\r", "\n").split("\n")
     segments: list[Segment] = []
@@ -594,7 +603,9 @@ def reflow_existing_translations(repo_root: Path) -> tuple[int, int]:
             _, before = extract_segments(str(item["story"]), script)
             oversized = sum(1 for segment in before if len(segment.indices) > 2)
             reflowed = limit_visible_text_lines(
-                localize_speaker_labels(script, glossary)
+                localize_speaker_labels(
+                    normalize_fixed_translation_terms(script), glossary
+                )
             )
             if reflowed != script:
                 document[5][0][2] = reflowed
@@ -825,6 +836,7 @@ def main() -> int:
         translated_script = "\r\n".join(lines)
         if not unchanged_directives(story_scripts[logical_name], translated_script):
             raise ValueError(f"A directive changed in {logical_name}")
+        translated_script = normalize_fixed_translation_terms(translated_script)
         translated_script = localize_speaker_labels(translated_script, glossary)
         translated_script = limit_visible_text_lines(translated_script)
         for _, segments in [extract_segments(logical_name, translated_script)]:
